@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex/models/pokemon_model.dart';
 import 'package:pokedex/ui/widgets/item_data_widget.dart';
 import 'package:pokedex/ui/widgets/item_type_widget.dart';
 
 class DetailPage extends StatelessWidget {
-  const DetailPage({super.key});
+  PokemonModel pokemon;
+  DetailPage({required this.pokemon});
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +41,7 @@ class DetailPage extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
-                      "Bulbasaur",
+                      pokemon.name,
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 36.0,
@@ -50,19 +52,14 @@ class DetailPage extends StatelessWidget {
                       height: 6.0,
                     ),
                     Row(
-                      children: [
-                        ItemTypeWidget(
-                          text: "Grass",
-                        ),
-                        ItemTypeWidget(
-                          text: "Poison",
-                        ),
-                      ],
+                      children: pokemon.type
+                          .map((e) => ItemTypeWidget(text: e))
+                          .toList(),
                     ),
                   ],
                 ),
                 Text(
-                  "#001",
+                  "#${pokemon.numPokemon}",
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 20.0,
@@ -125,8 +122,7 @@ class DetailPage extends StatelessWidget {
                           top: -90.0,
                           child: Align(
                             alignment: Alignment.topCenter,
-                            child: Image.network(
-                                "http://www.serebii.net/pokemongo/pokemon/001.png"),
+                            child: Image.network(pokemon.img),
                           ),
                         ),
                       ],

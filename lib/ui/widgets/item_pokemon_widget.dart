@@ -22,7 +22,7 @@ class itemPokemonWidget extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => DetailPage()));
+            context, MaterialPageRoute(builder: (context) => DetailPage(pokemon: pokemon,)));
       },
       child: Container(
         decoration: BoxDecoration(
