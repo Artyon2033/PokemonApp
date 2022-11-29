@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/models/pokemon_model.dart';
+import 'package:pokedex/ui/general/colors.dart';
 import 'package:pokedex/ui/widgets/item_data_widget.dart';
 import 'package:pokedex/ui/widgets/item_type_widget.dart';
 
@@ -12,10 +13,10 @@ class DetailPage extends StatelessWidget {
     double height = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      backgroundColor: Color(0xff49D0B0),
+      backgroundColor: colorsPokemon[pokemon.type.first],
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Color(0xff49D0B0),
+        backgroundColor: Colors.transparent,
         actions: [
           IconButton(
               onPressed: () {}, icon: Icon(Icons.favorite_border_outlined))
@@ -99,7 +100,7 @@ class DetailPage extends StatelessWidget {
                               ),
                               ItemDataWidget(
                                 title: "Height",
-                                data: "1.5 m",
+                                data: pokemon.height,
                               ),
                               ItemDataWidget(
                                 title: "Weight",

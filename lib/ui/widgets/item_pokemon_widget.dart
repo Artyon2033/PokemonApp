@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/models/pokemon_model.dart';
 import 'package:pokedex/pages/detail_page.dart';
+import 'package:pokedex/ui/general/colors.dart';
 import 'package:pokedex/ui/widgets/item_type_widget.dart';
 
 class itemPokemonWidget extends StatelessWidget {
@@ -26,7 +27,7 @@ class itemPokemonWidget extends StatelessWidget {
       },
       child: Container(
         decoration: BoxDecoration(
-            color: Color(0xff4ccFB2),
+            color:colorsPokemon[pokemon.type.first],
             borderRadius: BorderRadius.circular(18.0)),
         child: Stack(
           children: [
